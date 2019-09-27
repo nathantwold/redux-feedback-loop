@@ -7,7 +7,7 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
 const studentReducer = (state = {}, action) => {
-    if (action.type === 'SET_STUDENT_RESPONSE') {
+    if (action.type === 'SET_RESPONSE') {
         console.log(action.payload)
         return [...state, action.payload]
     }
