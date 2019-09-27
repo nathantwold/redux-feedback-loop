@@ -7,7 +7,7 @@ router.post('/', (req, res) => {
     console.log('Adding feedback', newFeedback);
     let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
                      VALUES ($1, $2, $3, $4);`;
-    pool.query(queryText, [newFeedback.feeling, newFeedback.understanding, newFeedback.support, newFeedback.comments]).then((result) => {
+    pool.query(queryText, [newFeedback[0], newFeedback[1], newFeedback[2], newFeedback[3]]).then((result) => {
         res.sendStatus(200);
     }).catch((error) => {
         console.log('Error adding new task', error);

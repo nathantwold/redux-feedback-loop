@@ -3,20 +3,33 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, bindActionCreators } from 'redux';
 import { Provider } from 'react-redux';
 
-const studentReducer = (state = {}, action) => {
-    if (action.type === 'SET_RESPONSE') {
-        console.log(action.payload)
-        return [...state, action.payload]
+const feedbackReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'SET_FEELING':
+            state = [...state, action.payload]
+            return state
+        case 'SET_UNDERSTANDING':
+            state = [...state, action.payload]
+            return state
+        case 'SET_SUPPORT':
+            state = [...state, action.payload]
+            return state
+        case 'SET_COMMENTS':
+            state = [...state, action.payload]
+            return state
+        case 'CLEAR_FORM':
+            state = []
+            return state
+        default: return state
     }
-    return state;
 }
 
 const storeInstance = createStore(
     combineReducers({
-        studentReducer
+        feedbackReducer
     }),
 );
 

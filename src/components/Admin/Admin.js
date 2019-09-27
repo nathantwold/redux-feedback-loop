@@ -6,7 +6,7 @@ class Admin extends Component {
     render(){
         return(
             <div>
-                <p>In Admin</p>
+                <p>Admin Page</p>
             </div>
         )
     }

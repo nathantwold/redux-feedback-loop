@@ -10,7 +10,7 @@ import Understanding from '../Understanding/Understanding';
 import Support from '../Support/Support';
 import Comments from '../Comments/Comments';
 import Review from '../Review/Review';
-import Submit from '../Submit/Submit';
+import Submitted from '../Submitted/Submitted';
 import Admin from '../Admin/Admin';
 
 class App extends Component {
@@ -30,7 +30,7 @@ class App extends Component {
           <Route path='/support' component={Support}></Route>
           <Route path='/comments' component={Comments}></Route>
           <Route path='/review' component={Review}></Route>
-          <Route path='/submit' component={Submit}></Route>
+          <Route path='/submitted' component={Submitted}></Route>
           <Route path='/admin' component={Admin}></Route>
           <br />
         </div>
