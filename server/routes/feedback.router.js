@@ -16,7 +16,7 @@ router.post('/', (req, res) => {
     })
 });
 
-// GET call to database to populate admin page
+// GET call to database to populate history on admin page
 router.get('/', (req, res) => {
     let queryText = `SELECT * FROM "feedback";`;
     pool.query(queryText).then(result => {

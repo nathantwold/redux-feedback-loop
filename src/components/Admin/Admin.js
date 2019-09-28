@@ -4,7 +4,7 @@ import axios from 'axios';
 
 class Admin extends Component {
 
-    // this will run contained functions on page load
+    // Run contained functions on page load
     componentDidMount = () => {
         this.getFeedback();
     }
