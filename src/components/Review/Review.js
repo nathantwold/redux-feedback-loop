@@ -6,13 +6,11 @@ import axios from 'axios';
 class Review extends Component {
     handleSubmit = () => {
         // axios POST to database
-        axios.post('/feedback', this.props.reduxStore.feedbackReducer)
-        .then((result) => {
-            console.log(result);
-        })
-        .catch((error) => {
-            console.log(error);
-        })
+        axios.post('/feedback', this.props.reduxStore.feedbackReducer).then((result) => {
+                console.log(result);
+            }).catch((error) => {
+                console.log(error);
+            })
         // clear redux state after POST
         this.props.dispatch({
             type: 'CLEAR_FORM'
@@ -27,7 +25,7 @@ class Review extends Component {
                 <h3>Understanding: {this.props.reduxStore.feedbackReducer[1]}</h3>
                 <h3>Support: {this.props.reduxStore.feedbackReducer[2]}</h3>
                 <h3>Comments: {this.props.reduxStore.feedbackReducer[3]}</h3>
-                <Link to='/submit'>
+                <Link to='/submitted'>
                     <button onClick={this.handleSubmit}>Submit</button>
                 </Link>
             </Router>

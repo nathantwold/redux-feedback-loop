@@ -3,9 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './components/App/App';
 import registerServiceWorker from './registerServiceWorker';
-import { createStore, combineReducers, bindActionCreators } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
+// redux state to hold data until submitted to database
 const feedbackReducer = (state = [], action) => {
     switch (action.type) {
         case 'SET_FEELING':
