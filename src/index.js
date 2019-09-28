@@ -28,9 +28,20 @@ const feedbackReducer = (state = [], action) => {
     }
 }
 
+// redux state from database to display to admin page
+const displayReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'SHOW_FEEDBACK':
+            state = action.payload
+            return state
+        default: return state
+    }
+}
+
 const storeInstance = createStore(
     combineReducers({
-        feedbackReducer
+        feedbackReducer,
+        displayReducer
     }),
 );
 

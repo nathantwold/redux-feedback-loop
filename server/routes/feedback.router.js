@@ -16,4 +16,14 @@ router.post('/', (req, res) => {
     })
 });
 
+// GET call to database to populate admin page
+router.get('/', (req, res) => {
+    let queryText = `SELECT * FROM "feedback";`;
+    pool.query(queryText).then(result => {
+        res.send(result.rows);
+    }).catch((error) => {
+        res.sendStatus(500);
+    })
+})
+
 module.exports = router;

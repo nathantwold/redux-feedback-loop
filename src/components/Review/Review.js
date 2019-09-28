@@ -7,10 +7,10 @@ class Review extends Component {
     handleSubmit = () => {
         // axios POST to database
         axios.post('/feedback', this.props.reduxStore.feedbackReducer).then((result) => {
-                console.log(result);
-            }).catch((error) => {
-                console.log(error);
-            })
+            console.log(result);
+        }).catch((error) => {
+            console.log(error);
+        })
         // clear redux state after POST
         this.props.dispatch({
             type: 'CLEAR_FORM'

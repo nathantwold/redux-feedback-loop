@@ -17,6 +17,13 @@
   font-size: large;
 }
 
+.response {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: lightblue;
+  margin: 10px;
+}
+
 select {
   height: 40px;
   width: 120px;
