@@ -20,7 +20,6 @@ class Comments extends Component {
             type: 'SET_COMMENTS',
             payload: this.state.comments
         })
-        console.log(this.state.comments);
     }
 
     render() {

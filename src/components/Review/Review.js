@@ -7,7 +7,7 @@ class Review extends Component {
     handleSubmit = () => {
         // axios POST to database
         axios.post('/feedback', this.props.reduxStore.feedbackReducer).then((result) => {
-            console.log(result);
+            console.log('feedback submitted' , result);
         }).catch((error) => {
             console.log(error);
         })

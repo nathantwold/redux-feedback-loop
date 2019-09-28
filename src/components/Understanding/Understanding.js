@@ -4,7 +4,7 @@ import { HashRouter as Router, Link } from 'react-router-dom';
 
 class Understanding extends Component {
     state = {
-        understanding: 1
+        understanding: '1'
     }
 
     handleChange = (event) => {
@@ -18,20 +18,26 @@ class Understanding extends Component {
             type: 'SET_UNDERSTANDING',
             payload: this.state.understanding
         })
-        console.log(this.state.understanding);
     }
 
     render() {
         return (
             <Router>
                 <h1>How well are you understanding the content?</h1>
-                <select value={this.state.understanding} onChange={this.handleChange}>
-                    <option value='1'>1</option>
-                    <option value='2'>2</option>
-                    <option value='3'>3</option>
-                    <option value='4'>4</option>
-                    <option value='5'>5</option>
-                </select>
+                <div>
+                    <form>
+                        <label><input onChange={this.handleChange} checked={this.state.understanding === '1'}
+                            type='radio' value='1' />1</label>
+                        <label><input onChange={this.handleChange} checked={this.state.understanding === '2'}
+                            type='radio' value='2' />2</label>
+                        <label><input onChange={this.handleChange} checked={this.state.understanding === '3'}
+                            type='radio' value='3' />3</label>
+                        <label><input onChange={this.handleChange} checked={this.state.understanding === '4'}
+                            type='radio' value='4' />4</label>
+                        <label><input onChange={this.handleChange} checked={this.state.understanding === '5'}
+                            type='radio' value='5' />5</label>
+                    </form>
+                </div>
                 <Link to='/support'>
                     <button onClick={this.handleClick}>Next</button>
                 </Link>
