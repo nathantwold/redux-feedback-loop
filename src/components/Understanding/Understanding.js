@@ -18,6 +18,7 @@ class Understanding extends Component {
             type: 'SET_UNDERSTANDING',
             payload: this.state.understanding
         })
+        console.log(this.state.understanding);
     }
 
     render() {

@@ -4,14 +4,12 @@ import { HashRouter as Router, Link } from 'react-router-dom';
 
 class Comments extends Component {
     state = {
-        comments: '',
-        button: true
+        comments: ''
     }
 
     handleChange = (event) => {
         this.setState({
-            comments: event.target.value,
-            button: false
+            comments: event.target.value
         })
     }
 
@@ -20,6 +18,7 @@ class Comments extends Component {
             type: 'SET_COMMENTS',
             payload: this.state.comments
         })
+        console.log(this.state.comments);
     }
 
     render() {
@@ -28,7 +27,7 @@ class Comments extends Component {
                 <h1>Are there any comments you'd like to leave?</h1>
                 <input type='text' onChange={this.handleChange}></input>
                 <Link to='/review'>
-                    <button disabled={this.state.button} onClick={this.handleClick}>Next</button>
+                    <button onClick={this.handleClick}>Next</button>
                 </Link>
             </Router>
         )

@@ -4,12 +4,18 @@ import { HashRouter as Router, Link } from 'react-router-dom';
 
 class Home extends Component {
 
+    emptyForm = () => {
+        this.props.dispatch({
+            type: 'CLEAR_FORM'
+        })
+    }
+
     render() {
         return (
             <Router>
                 <h1>Ready for feedback?</h1>
                 <Link to='/feeling'>
-                    <button>Get Started!</button>
+                    <button onClick={this.emptyForm}>Get Started!</button>
                 </Link>
             </Router>
         )

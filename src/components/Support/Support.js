@@ -18,6 +18,7 @@ class Support extends Component {
             type: 'SET_SUPPORT',
             payload: this.state.support
         })
+        console.log(this.state.support);
     }
 
     render() {

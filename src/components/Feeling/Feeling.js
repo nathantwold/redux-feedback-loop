@@ -18,6 +18,8 @@ class Feeling extends Component {
             type: 'SET_FEELING',
             payload: this.state.feeling
         })
+        console.log(this.state.feeling);
+        
     }
 
     render() {
