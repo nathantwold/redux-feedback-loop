@@ -7,7 +7,7 @@ class Submitted extends Component {
     render() {
         return (
             <Router>
-                <h1>Thanks for your feedback!</h1>
+                <h1>Thank you for your feedback!</h1>
                 <Link to='/'>
                     <button>Leave new feedback</button>
                 </Link>
