@@ -34,15 +34,32 @@ class Admin extends Component {
         let responses = this.props.reduxStore.displayReducer;
 
         return (
-            <div>
+            <div className="adminTable">
                 <h1>Admin Page</h1>
                 <h3>Feedback history</h3>
-                {responses.map(response => <div className="response" key={response.id}>
-                    <p>{moment(response.date).format("MMMM Do YYYY")}</p>
-                    <p>Feeling: {response.feeling}, Understanding: {response.understanding},
-                    Support: {response.support}, Comments: {response.comments}</p>
-                    <button className="backButton" onClick={() => this.deleteFeedback(response.id)}>Delete</button></div>
-                )}
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Feeling</th>
+                            <th>Understanding</th>
+                            <th>Support</th>
+                            <th>Comments</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>{responses.map(response =>
+                        <tr className="response" key={response.id}>
+                            <td>{moment(response.date).format("MMMM Do YYYY")}</td>
+                            <td>{response.feeling}</td>
+                            <td>{response.understanding}</td>
+                            <td>{response.support}</td>
+                            <td>{response.comments}</td>
+                            <td><button className="backButton" onClick={() =>
+                                this.deleteFeedback(response.id)}>Delete</button></td>
+                        </tr>)}
+                    </tbody>
+                </table>
             </div>
         )
     }

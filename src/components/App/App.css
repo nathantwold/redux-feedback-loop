@@ -27,7 +27,6 @@
 
 .response {
   border: 1px solid black;
-  border-radius: 10px;
   background-color: lightblue;
   margin: 10px;
 }
@@ -68,4 +67,10 @@ select {
   width: 120px;
   border-radius: 5px;
   font-size: 14px;
+}
+
+table {
+  width: 90%;
+  margin-right: 5%;
+  margin-left: 5%;
 }
