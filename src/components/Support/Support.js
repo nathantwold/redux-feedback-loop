@@ -3,22 +3,32 @@ import { connect } from 'react-redux';
 import { HashRouter as Router, Link } from 'react-router-dom';
 
 class Support extends Component {
+    // default value to be sent to redux state
     state = {
         support: '1'
     }
 
+    // clears the current redux state for re-entry
+    handleBack = () => {
+        this.props.dispatch({
+            type: 'SET_SUPPORT',
+            payload: ''
+        })
+    }
+
+    // set the current local state
     handleChange = (event) => {
         this.setState({
             support: event.target.value
         })
     }
 
+    // send the current state to redux state
     handleClick = () => {
         this.props.dispatch({
             type: 'SET_SUPPORT',
             payload: this.state.support
         })
-        console.log(this.state.support);
     }
 
     render() {
@@ -39,6 +49,9 @@ class Support extends Component {
                             type='radio' value='5' />5</label>
                     </form>
                 </div>
+                <Link to='/understanding'>
+                    <button className="backButton" onClick={this.handleBack}>Back</button>
+                </Link>
                 <Link to='/comments'>
                     <button onClick={this.handleClick}>Next</button>
                 </Link>

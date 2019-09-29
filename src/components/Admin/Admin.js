@@ -9,6 +9,17 @@ class Admin extends Component {
         this.getFeedback();
     }
 
+    // DELETE call to database to delete feedback item on confirm
+    deleteFeedback = (id) => {
+        if (window.confirm('are you sure you want to delete this record?')) {
+            axios.delete('/feedback/' + id).then((response) => {
+                this.getFeedback();
+            }).catch((error) => {
+                console.log('error in delete', error);
+            })
+        }
+    }
+
     // GET call to database to send to global redux state
     getFeedback = () => {
         axios.get('/feedback').then((response) => {
@@ -26,10 +37,10 @@ class Admin extends Component {
                 <h1>Admin Page</h1>
                 <h3>Feedback history</h3>
                 {responses.map(response => <div className="response" key={response.id}>
-                    {/* <p>Date: {Date.prototype.toDateString(response.date)}</p> */}
-                    <p>Date: {Date.parse(response.date)}</p>
+                    <p>Date: {response.date}</p>
                     <p>Feeling: {response.feeling}, Understanding: {response.understanding},
-                    Support: {response.support}, Comments: {response.comments}</p></div>
+                    Support: {response.support}, Comments: {response.comments}</p>
+                    <button className="backButton" onClick={() => this.deleteFeedback(response.id)}>Delete</button></div>
                 )}
             </div>
         )

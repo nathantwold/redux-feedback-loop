@@ -3,22 +3,32 @@ import { connect } from 'react-redux';
 import { HashRouter as Router, Link } from 'react-router-dom';
 
 class Understanding extends Component {
+    // default value to be sent to redux state
     state = {
         understanding: '1'
     }
 
+    // clears the current redux state for re-entry
+    handleBack = () => {
+        this.props.dispatch({
+            type: 'SET_UNDERSTANDING',
+            payload: ''
+        })
+    }
+
+    // set the current local state
     handleChange = (event) => {
         this.setState({
             understanding: event.target.value
         })
     }
 
+    // send the current state to redux state
     handleClick = () => {
         this.props.dispatch({
             type: 'SET_UNDERSTANDING',
             payload: this.state.understanding
         })
-        console.log(this.state.understanding);
     }
 
     render() {
@@ -39,6 +49,9 @@ class Understanding extends Component {
                             type='radio' value='5' />5</label>
                     </form>
                 </div>
+                <Link to='/feeling'>
+                    <button className="backButton" onClick={this.handleBack}>Back</button>
+                </Link>
                 <Link to='/support'>
                     <button onClick={this.handleClick}>Next</button>
                 </Link>

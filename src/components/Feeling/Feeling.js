@@ -3,23 +3,32 @@ import { connect } from 'react-redux';
 import { HashRouter as Router, Link } from 'react-router-dom';
 
 class Feeling extends Component {
+    // default value to be sent to redux state
     state = {
         feeling: '1'
     }
 
+    // clears the current redux state for re-entry
+    handleBack = () => {
+        this.props.dispatch({
+            type: 'SET_FEELING',
+            payload: ''
+        })
+    }
+
+    // set the current local state
     handleChange = (event) => {
         this.setState({
             feeling: event.target.value
         })
     }
 
+    // send the current state to redux state
     handleClick = () => {
         this.props.dispatch({
             type: 'SET_FEELING',
             payload: this.state.feeling
         })
-        console.log(this.state.feeling);
-        
     }
 
     render() {
@@ -40,6 +49,9 @@ class Feeling extends Component {
                             type='radio' value='5' />5</label>
                     </form>
                 </div>
+                <Link to='/'>
+                    <button className="backButton" onClick={this.handleBack}>Back</button>
+                </Link>
                 <Link to='/understanding'>
                     <button onClick={this.handleClick}>Next</button>
                 </Link>
