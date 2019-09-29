@@ -36,13 +36,6 @@
   display: -webkit-box;
 }
 
-select {
-  height: 40px;
-  width: 120px;
-  border-radius: 5px;
-  font-size: 14px;
-}
-
 button {
   margin: 10px;
   height: 40px;
@@ -68,4 +61,11 @@ label {
   font-size: 30px;
   margin-right: 5%;
   margin-left: 5%;
+}
+
+select {
+  height: 40px;
+  width: 120px;
+  border-radius: 5px;
+  font-size: 14px;
 }

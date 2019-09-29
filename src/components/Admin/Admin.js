@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
+import moment from 'moment';
 
 class Admin extends Component {
 
@@ -37,7 +38,7 @@ class Admin extends Component {
                 <h1>Admin Page</h1>
                 <h3>Feedback history</h3>
                 {responses.map(response => <div className="response" key={response.id}>
-                    <p>Date: {response.date}</p>
+                    <p>{moment(response.date).format("MMMM Do YYYY")}</p>
                     <p>Feeling: {response.feeling}, Understanding: {response.understanding},
                     Support: {response.support}, Comments: {response.comments}</p>
                     <button className="backButton" onClick={() => this.deleteFeedback(response.id)}>Delete</button></div>

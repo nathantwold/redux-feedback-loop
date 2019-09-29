@@ -4,7 +4,7 @@ import { HashRouter as Router, Link } from 'react-router-dom';
 
 class Home extends Component {
 
-    // redundant measure to ensure redux state is emptied and ready for new entry
+    // redundant measure to ensure redux state is cleared and ready for new entry
     emptyForm = () => {
         this.props.dispatch({
             type: 'CLEAR_FORM'
