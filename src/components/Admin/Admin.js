@@ -22,6 +22,12 @@ class Admin extends Component {
         }
     }
 
+    // PUT call to database to flag an item for review
+    // flagReview = () => {
+    //     axios.put('/') => {
+    //     }
+    // }
+
     // GET call to database to send to global redux state
     getFeedback = () => {
         axios.get('/feedback').then((response) => {
@@ -33,7 +39,7 @@ class Admin extends Component {
 
     render() {
         let responses = this.props.reduxStore.displayReducer;
-        
+
         return (
             <div className="adminTable">
                 <h1>Admin Page</h1>
@@ -56,8 +62,8 @@ class Admin extends Component {
                             <td>{response.understanding}</td>
                             <td>{response.support}</td>
                             <td>{response.comments}</td>
-                            <td className="deleteButton"><Button color="secondary" size="large" onClick={() =>
-                                this.deleteFeedback(response.id)}>Delete</Button></td>
+                            <td className="deleteButton"><Button color="secondary" size="large"
+                                onClick={() => this.deleteFeedback(response.id)}>Delete</Button></td>
                         </tr>)}
                     </tbody>
                 </table>

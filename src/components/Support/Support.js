@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Link } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
 class Support extends Component {
     // default value to be sent to redux state
     state = {
-        support: '1'
+        support: this.props.reduxStore.feedbackReducer.support
     }
 
     // clears the current redux state for re-entry
@@ -15,6 +15,7 @@ class Support extends Component {
             type: 'SET_SUPPORT',
             payload: ''
         })
+        this.props.history.push('/understanding');
     }
 
     // set the current local state
@@ -26,10 +27,15 @@ class Support extends Component {
 
     // send the current state to redux state
     handleClick = () => {
-        this.props.dispatch({
-            type: 'SET_SUPPORT',
-            payload: this.state.support
-        })
+        if (this.state.support === '') {
+            alert('Please select an answer')
+        } else {
+            this.props.dispatch({
+                type: 'SET_SUPPORT',
+                payload: this.state.support
+            })
+            this.props.history.push('/comments');
+        }
     }
 
     render() {
@@ -50,12 +56,8 @@ class Support extends Component {
                             type='radio' value='5' />5</label>
                     </form>
                 </div>
-                <Link className="link" to='/understanding'>
-                    <Button color="secondary" variant="contained" onClick={this.handleBack}>Back</Button>
-                </Link>
-                <Link className="link" to='/comments'>
-                    <Button color="primary" variant="contained" onClick={this.handleClick}>Next</Button>
-                </Link>
+                <Button color="secondary" variant="contained" onClick={this.handleBack}>Back</Button>
+                <Button color="primary" variant="contained" onClick={this.handleClick}>Next</Button>
             </Router>
         )
     }

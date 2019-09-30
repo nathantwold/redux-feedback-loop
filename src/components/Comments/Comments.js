@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Link } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
 class Comments extends Component {
     // default value to be sent to redux state
     state = {
-        comments: ''
+        comments: this.props.reduxStore.feedbackReducer.comments
     }
 
     // clears the current redux state for re-entry
@@ -15,6 +15,7 @@ class Comments extends Component {
             type: 'SET_COMMENTS',
             payload: ''
         })
+        this.props.history.push('/support');
     }
 
     // set the current local state
@@ -30,6 +31,7 @@ class Comments extends Component {
             type: 'SET_COMMENTS',
             payload: this.state.comments
         })
+        this.props.history.push('/review');
     }
 
     render() {
@@ -38,12 +40,8 @@ class Comments extends Component {
                 <h1>Are there any comments you'd like to leave?</h1>
                 <input type='text' onChange={this.handleChange}></input>
                 <br />
-                <Link className="link" to='/support'>
-                    <Button color="secondary" variant="contained" onClick={this.handleBack}>Back</Button>
-                </Link>
-                <Link className="link" to='/review'>
-                    <Button color="primary" variant="contained" onClick={this.handleClick}>Next</Button>
-                </Link>
+                <Button color="secondary" variant="contained" onClick={this.handleBack}>Back</Button>
+                <Button color="primary" variant="contained" onClick={this.handleClick}>Next</Button>
             </Router>
         )
     }

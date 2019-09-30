@@ -21,10 +21,6 @@
   width: 50px;
 }
 
-.link {
-  text-decoration: none;
-}
-
 .response {
   border: 1px solid black;
   background-color: lightblue;

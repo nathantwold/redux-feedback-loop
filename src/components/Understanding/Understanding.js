@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { HashRouter as Router, Link } from 'react-router-dom';
+import { HashRouter as Router } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 
 class Understanding extends Component {
     // default value to be sent to redux state
     state = {
-        understanding: '1'
+        understanding: this.props.reduxStore.feedbackReducer.understanding
     }
 
     // clears the current redux state for re-entry
@@ -15,6 +15,7 @@ class Understanding extends Component {
             type: 'SET_UNDERSTANDING',
             payload: ''
         })
+        this.props.history.push('/feeling');
     }
 
     // set the current local state
@@ -26,10 +27,15 @@ class Understanding extends Component {
 
     // send the current state to redux state
     handleClick = () => {
-        this.props.dispatch({
-            type: 'SET_UNDERSTANDING',
-            payload: this.state.understanding
-        })
+        if (this.state.understanding === '') {
+            alert('Please select an answer')
+        } else {
+            this.props.dispatch({
+                type: 'SET_UNDERSTANDING',
+                payload: this.state.understanding
+            })
+            this.props.history.push('/support');
+        }
     }
 
     render() {
@@ -50,12 +56,8 @@ class Understanding extends Component {
                             type='radio' value='5' />5</label>
                     </form>
                 </div>
-                <Link className="link" to='/feeling'>
-                    <Button color="secondary" variant="contained" onClick={this.handleBack}>Back</Button>
-                </Link>
-                <Link className="link" to='/support'>
-                    <Button color="primary" variant="contained" onClick={this.handleClick}>Next</Button>
-                </Link>
+                <Button color="secondary" variant="contained" onClick={this.handleBack}>Back</Button>
+                <Button color="primary" variant="contained" onClick={this.handleClick}>Next</Button>
             </Router>
         )
     }

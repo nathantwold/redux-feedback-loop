@@ -35,7 +35,7 @@ const feedbackReducer = (state = blankForm, action) => {
     }
 }
 
-// redux state from database to display to admin page
+// redux state from database to display feedback items to admin page
 const displayReducer = (state = [], action) => {
     switch (action.type) {
         case 'SHOW_FEEDBACK':
@@ -44,6 +44,16 @@ const displayReducer = (state = [], action) => {
         default: return state
     }
 }
+
+// redux state from database to display flagged items to admin page
+// const flagReducer = (state = {}, action) => {
+//     switch (action.type) {
+//         case 'FLAG_FEEDBACK':
+//             state = action.payload
+//             return state
+//         default: return state
+//     }
+// }
 
 const storeInstance = createStore(
     combineReducers({
