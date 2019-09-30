@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 class Comments extends Component {
     // default value to be sent to redux state
@@ -37,11 +38,11 @@ class Comments extends Component {
                 <h1>Are there any comments you'd like to leave?</h1>
                 <input type='text' onChange={this.handleChange}></input>
                 <br />
-                <Link to='/support'>
-                    <button className="backButton" onClick={this.handleBack}>Back</button>
+                <Link className="link" to='/support'>
+                    <Button color="secondary" variant="contained" onClick={this.handleBack}>Back</Button>
                 </Link>
-                <Link to='/review'>
-                    <button onClick={this.handleClick}>Next</button>
+                <Link className="link" to='/review'>
+                    <Button color="primary" variant="contained" onClick={this.handleClick}>Next</Button>
                 </Link>
             </Router>
         )

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import moment from 'moment';
+import Button from '@material-ui/core/Button';
 
 class Admin extends Component {
 
@@ -32,11 +33,11 @@ class Admin extends Component {
 
     render() {
         let responses = this.props.reduxStore.displayReducer;
-
+        
         return (
             <div className="adminTable">
                 <h1>Admin Page</h1>
-                <h3>Feedback history</h3>
+                <h2 className="results">Feedback history</h2>
                 <table>
                     <thead>
                         <tr>
@@ -55,8 +56,8 @@ class Admin extends Component {
                             <td>{response.understanding}</td>
                             <td>{response.support}</td>
                             <td>{response.comments}</td>
-                            <td><button className="backButton" onClick={() =>
-                                this.deleteFeedback(response.id)}>Delete</button></td>
+                            <td className="deleteButton"><Button color="secondary" size="large" onClick={() =>
+                                this.deleteFeedback(response.id)}>Delete</Button></td>
                         </tr>)}
                     </tbody>
                 </table>

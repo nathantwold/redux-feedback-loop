@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 
 class Feeling extends Component {
     // default value to be sent to redux state
@@ -49,11 +50,11 @@ class Feeling extends Component {
                             type='radio' value='5' />5</label>
                     </form>
                 </div>
-                <Link to='/'>
-                    <button className="backButton" onClick={this.handleBack}>Back</button>
+                <Link className="link" to='/'>
+                    <Button color="secondary" variant="contained" onClick={this.handleBack}>Back</Button>
                 </Link>
-                <Link to='/understanding'>
-                    <button onClick={this.handleClick}>Next</button>
+                <Link className="link" to='/understanding'>
+                    <Button color="primary" variant="contained" onClick={this.handleClick}>Next</Button>
                 </Link>
             </Router>
         )
