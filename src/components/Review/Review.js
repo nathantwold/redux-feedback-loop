@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router, Link } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 import axios from 'axios';
 
 class Review extends Component {
@@ -22,15 +23,18 @@ class Review extends Component {
         return (
             <Router>
                 <h1>Review your feedback</h1>
+                <div className="results">
                 <h3>Feeling: {this.props.reduxStore.feedbackReducer.feeling}</h3>
                 <h3>Understanding: {this.props.reduxStore.feedbackReducer.understanding}</h3>
                 <h3>Support: {this.props.reduxStore.feedbackReducer.support}</h3>
                 <h3>Comments: {this.props.reduxStore.feedbackReducer.comments}</h3>
-                <Link to='/comments'>
-                    <button className="backButton" >Back</button>
+                </div>
+                <br />
+                <Link className="link" to='/comments'>
+                    <Button color="secondary" variant="contained">Back</Button>
                 </Link>
-                <Link to='/submitted'>
-                    <button onClick={this.handleSubmit}>Submit</button>
+                <Link className="link" to='/submitted'>
+                    <Button color="primary" variant="contained" onClick={this.handleSubmit}>Submit</Button>
                 </Link>
             </Router>
         )
