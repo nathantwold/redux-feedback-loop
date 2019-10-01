@@ -7,14 +7,8 @@ import { createStore, combineReducers } from 'redux';
 import { Provider } from 'react-redux';
 
 // redux state to hold data until submitted to database
-let blankForm = {
-    feeling: '',
-    understanding: '',
-    support: '',
-    comments: ''
-}
 
-const feedbackReducer = (state = blankForm, action) => {
+const feedbackReducer = (state = { feeling: '', understanding: '', support: '', comments: '' }, action) => {
     switch (action.type) {
         case 'SET_FEELING':
             state.feeling = action.payload
@@ -29,7 +23,7 @@ const feedbackReducer = (state = blankForm, action) => {
             state.comments = action.payload
             return state
         case 'CLEAR_FORM':
-            state = blankForm
+            state = { feeling: '', understanding: '', support: '', comments: '' }
             return state
         default: return state
     }

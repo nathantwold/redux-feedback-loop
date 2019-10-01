@@ -17,10 +17,6 @@
   font-size: large;
 }
 
-.deleteButton {
-  width: 50px;
-}
-
 .flagged {
   background-color: red;
 }
@@ -33,24 +29,6 @@
 
 .results {
   display: inline-block;
-}
-
-h3 {
-  background-color: lightblue;
-  width: 200px;
-  border-radius: 5px;
-}
-
-input {
-  height: 25px;
-  width: auto;
-  font-size: 18px
-}
-
-label {
-  font-size: 30px;
-  margin-right: 5%;
-  margin-left: 5%;
 }
 
 table {

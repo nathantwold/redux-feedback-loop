@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 class Submitted extends Component {
 
     handleBack = () => {
-        this.props.history.push('/comments')
+        this.props.history.push('/')
     }
 
     render() {
@@ -14,7 +14,9 @@ class Submitted extends Component {
             <Router>
                 <h1>Thank you for your feedback!</h1>
                 <Button color="primary" variant="contained"
-                    onClick={this.handleBack}>Leave new feedback</Button>
+                    style={{
+                        borderRadius: 5, margin: 5, padding: "12px 36px", fontSize: "16px"
+                    }} onClick={this.handleBack}>Submit new feedback</Button>
             </Router>
         );
     }

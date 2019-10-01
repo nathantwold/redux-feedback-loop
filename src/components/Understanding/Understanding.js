@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import { Button, Radio, RadioGroup } from '@material-ui/core';
 
 class Understanding extends Component {
     // default value to be sent to redux state
@@ -43,21 +43,29 @@ class Understanding extends Component {
             <Router>
                 <h1>How well are you understanding the content?</h1>
                 <div>
-                    <form>
-                        <label><input onChange={this.handleChange} checked={this.state.understanding === '1'}
-                            type='radio' value='1' />1</label>
-                        <label><input onChange={this.handleChange} checked={this.state.understanding === '2'}
-                            type='radio' value='2' />2</label>
-                        <label><input onChange={this.handleChange} checked={this.state.understanding === '3'}
-                            type='radio' value='3' />3</label>
-                        <label><input onChange={this.handleChange} checked={this.state.understanding === '4'}
-                            type='radio' value='4' />4</label>
-                        <label><input onChange={this.handleChange} checked={this.state.understanding === '5'}
-                            type='radio' value='5' />5</label>
-                    </form>
+                    <RadioGroup style={{ display: "block" }}>
+                        <label>I'm completely lost</label>
+                        <Radio value="1" onChange={this.handleChange}
+                            color="primary" checked={this.state.understanding === '1'} />
+                        <Radio value="2" onChange={this.handleChange}
+                            color="primary" checked={this.state.understanding === '2'} />
+                        <Radio value="3" onChange={this.handleChange}
+                            color="primary" checked={this.state.understanding === '3'} />
+                        <Radio value="4" onChange={this.handleChange}
+                            color="primary" checked={this.state.understanding === '4'} />
+                        <Radio value="5" onChange={this.handleChange}
+                            color="primary" checked={this.state.understanding === '5'} />
+                        <label>I could teach this!</label>
+                    </RadioGroup>
                 </div>
-                <Button color="secondary" variant="contained" onClick={this.handleBack}>Back</Button>
-                <Button color="primary" variant="contained" onClick={this.handleClick}>Next</Button>
+                <Button color="secondary" variant="contained"
+                    style={{
+                        borderRadius: 5, margin: 5, padding: "12px 36px", fontSize: "16px"
+                    }} onClick={this.handleBack}>Back</Button>
+                <Button color="primary" variant="contained"
+                    style={{
+                        borderRadius: 5, margin: 5, padding: "12px 36px", fontSize: "16px"
+                    }} onClick={this.handleClick}>Next</Button>
             </Router>
         )
     }

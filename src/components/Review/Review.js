@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
 import axios from 'axios';
+import { Button } from '@material-ui/core';
 
 class Review extends Component {
 
@@ -16,11 +16,11 @@ class Review extends Component {
             console.log('feedback submitted', result);
         }).catch((error) => {
             console.log(error);
-        });
+        })
         // clear redux state after POST
         this.props.dispatch({
             type: 'CLEAR_FORM'
-        });
+        })
         this.props.history.push('/submitted')
     }
 
@@ -35,8 +35,14 @@ class Review extends Component {
                     <h3>Comments: {this.props.reduxStore.feedbackReducer.comments}</h3>
                 </div>
                 <br />
-                <Button color="secondary" variant="contained" onClick={this.handleBack}>Back</Button>
-                <Button color="primary" variant="contained" onClick={this.handleSubmit}>Submit</Button>
+                <Button color="secondary" variant="contained"
+                    style={{
+                        borderRadius: 5, margin: 5, padding: "12px 36px", fontSize: "16px"
+                    }} onClick={this.handleBack}>Back</Button>
+                <Button color="primary" variant="contained"
+                    style={{
+                        borderRadius: 5, margin: 5, padding: "12px 36px", fontSize: "16px"
+                    }} onClick={this.handleSubmit}>Submit!</Button>
             </Router>
         );
     }

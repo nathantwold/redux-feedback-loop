@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
-import Button from '@material-ui/core/Button';
+import { Button, Radio, RadioGroup } from '@material-ui/core';
 
 class Feeling extends Component {
     // default value to be sent to redux state
@@ -36,6 +36,9 @@ class Feeling extends Component {
             });
             this.props.history.push('/understanding');
         }
+        this.setState({
+            feeling: ""
+        })
     }
 
     render() {
@@ -43,21 +46,29 @@ class Feeling extends Component {
             <Router>
                 <h1>How are you feeling today?</h1>
                 <div>
-                    <form>
-                        <label><input onChange={this.handleChange} checked={this.state.feeling === '1'}
-                            type='radio' value='1' />1</label>
-                        <label><input onChange={this.handleChange} checked={this.state.feeling === '2'}
-                            type='radio' value='2' />2</label>
-                        <label><input onChange={this.handleChange} checked={this.state.feeling === '3'}
-                            type='radio' value='3' />3</label>
-                        <label><input onChange={this.handleChange} checked={this.state.feeling === '4'}
-                            type='radio' value='4' />4</label>
-                        <label><input onChange={this.handleChange} checked={this.state.feeling === '5'}
-                            type='radio' value='5' />5</label>
-                    </form>
+                    <RadioGroup style={{ display: "block" }}>
+                        <label>Terrible</label>
+                        <Radio value="1" onChange={this.handleChange}
+                            color="primary" checked={this.state.feeling === '1'} />
+                        <Radio value="2" onChange={this.handleChange}
+                            color="primary" checked={this.state.feeling === '2'} />
+                        <Radio value="3" onChange={this.handleChange}
+                            color="primary" checked={this.state.feeling === '3'} />
+                        <Radio value="4" onChange={this.handleChange}
+                            color="primary" checked={this.state.feeling === '4'} />
+                        <Radio value="5" onChange={this.handleChange}
+                            color="primary" checked={this.state.feeling === '5'} />
+                        <label>Great!</label>
+                    </RadioGroup>
                 </div>
-                <Button color="secondary" variant="contained" onClick={this.handleBack}>Back</Button>
-                <Button color="primary" variant="contained" onClick={this.handleClick}>Next</Button>
+                <Button color="secondary" variant="contained"
+                    style={{
+                        borderRadius: 5, margin: 5, padding: "12px 36px", fontSize: "16px"
+                    }} onClick={this.handleBack}>Back</Button>
+                <Button color="primary" variant="contained"
+                    style={{
+                        borderRadius: 5, margin: 5, padding: "12px 36px", fontSize: "16px"
+                    }} onClick={this.handleClick}>Next</Button>
             </Router>
         )
     }

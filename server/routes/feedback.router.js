@@ -41,7 +41,7 @@ router.put('/:flagged/:id', (req, res) => {
     }
 })
 
-// POST feedback entry to database
+// POST call to database to add new feedback
 router.post('/', (req, res) => {
     let newFeedback = req.body;
     let queryText = `INSERT INTO "feedback" ("feeling", "understanding", "support", "comments")
