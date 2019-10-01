@@ -5,11 +5,7 @@ import { Button } from '@material-ui/core';
 
 class Home extends Component {
 
-    // redundant measure to ensure redux state is cleared and ready for new entry
     handleClick = () => {
-        // this.props.dispatch({
-        //     type: 'CLEAR_FORM'
-        // });
         this.props.history.push('/feeling')
     }
 

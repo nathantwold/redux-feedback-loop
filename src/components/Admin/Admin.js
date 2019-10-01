@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import moment from 'moment';
-import Button from '@material-ui/core/Button';
+import { IconButton } from '@material-ui/core';
+import DeleteIcon from '@material-ui/icons/Delete';
+import FlagIcon from '@material-ui/icons/Flag';
 
 class Admin extends Component {
 
@@ -66,12 +68,12 @@ class Admin extends Component {
                             <td>{response.support}</td>
                             <td>{response.comments}</td>
                             {response.flagged === true ?
-                                <td className="flagged"><Button color="primary" size="large"
-                                    onClick={() => this.toggleFlag(response.flagged, response.id)}>Unflag</Button> </td> :
-                                <td><Button color="secondary" size="large"
-                                    onClick={() => this.toggleFlag(response.flagged, response.id)}>Flag</Button> </td>}
-                            <td className="deleteButton"><Button color="secondary" size="large"
-                                onClick={() => this.deleteFeedback(response.id)}>Delete</Button></td>
+                                <td className="flagged"><IconButton color="primary" 
+                                    onClick={() => this.toggleFlag(response.flagged, response.id)}><FlagIcon /></IconButton> </td> :
+                                <td><IconButton color="secondary" 
+                                    onClick={() => this.toggleFlag(response.flagged, response.id)}><FlagIcon /></IconButton> </td>}
+                            <td className="deleteButton"><IconButton color="secondary"
+                                onClick={() => this.deleteFeedback(response.id)}><DeleteIcon /></IconButton></td>
                         </tr>)}
                     </tbody>
                 </table>

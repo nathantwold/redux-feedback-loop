@@ -17,6 +17,10 @@
   font-size: large;
 }
 
+.MuiInputLabel-root {
+  margin: 12px;
+}
+
 .flagged {
   background-color: red;
 }

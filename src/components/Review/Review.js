@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
 import axios from 'axios';
-import { Button } from '@material-ui/core';
+import { IconButton } from '@material-ui/core';
+import { ArrowBack, Check } from '@material-ui/icons';
 
 class Review extends Component {
 
@@ -35,14 +36,10 @@ class Review extends Component {
                     <h3>Comments: {this.props.reduxStore.feedbackReducer.comments}</h3>
                 </div>
                 <br />
-                <Button color="secondary" variant="contained"
-                    style={{
-                        borderRadius: 5, margin: 5, padding: "12px 36px", fontSize: "16px"
-                    }} onClick={this.handleBack}>Back</Button>
-                <Button color="primary" variant="contained"
-                    style={{
-                        borderRadius: 5, margin: 5, padding: "12px 36px", fontSize: "16px"
-                    }} onClick={this.handleSubmit}>Submit!</Button>
+                <IconButton color="secondary"
+                    onClick={this.handleBack}><ArrowBack /></IconButton>
+                <IconButton color="primary"
+                    onClick={this.handleSubmit}><Check /></IconButton>
             </Router>
         );
     }
