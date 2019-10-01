@@ -14,7 +14,7 @@ class Understanding extends Component {
         this.props.dispatch({
             type: 'SET_UNDERSTANDING',
             payload: ''
-        })
+        });
         this.props.history.push('/feeling');
     }
 
@@ -22,7 +22,7 @@ class Understanding extends Component {
     handleChange = (event) => {
         this.setState({
             understanding: event.target.value
-        })
+        });
     }
 
     // send the current state to redux state
@@ -33,7 +33,7 @@ class Understanding extends Component {
             this.props.dispatch({
                 type: 'SET_UNDERSTANDING',
                 payload: this.state.understanding
-            })
+            });
             this.props.history.push('/support');
         }
     }
@@ -65,6 +65,6 @@ class Understanding extends Component {
 
 const mapStateToProps = (reduxStore) => ({
     reduxStore
-})
+});
 
 export default connect(mapStateToProps)(Understanding);

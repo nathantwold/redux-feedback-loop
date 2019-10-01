@@ -16,12 +16,12 @@ class Submitted extends Component {
                 <Button color="primary" variant="contained"
                     onClick={this.handleBack}>Leave new feedback</Button>
             </Router>
-        )
+        );
     }
 }
 
 const mapStateToProps = (reduxStore) => ({
     reduxStore
-})
+});
 
 export default connect(mapStateToProps)(Submitted);

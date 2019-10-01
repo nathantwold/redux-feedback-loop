@@ -14,7 +14,7 @@ class Feeling extends Component {
         this.props.dispatch({
             type: 'SET_FEELING',
             payload: ''
-        })
+        });
         this.props.history.push('/');
     }
 
@@ -22,7 +22,7 @@ class Feeling extends Component {
     handleChange = (event) => {
         this.setState({
             feeling: event.target.value
-        })
+        });
     }
 
     // send the current state to redux state
@@ -33,7 +33,7 @@ class Feeling extends Component {
             this.props.dispatch({
                 type: 'SET_FEELING',
                 payload: this.state.feeling
-            })
+            });
             this.props.history.push('/understanding');
         }
     }
@@ -65,6 +65,6 @@ class Feeling extends Component {
 
 const mapStateToProps = (reduxStore) => ({
     reduxStore
-})
+});
 
 export default connect(mapStateToProps)(Feeling);

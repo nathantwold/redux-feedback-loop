@@ -14,7 +14,7 @@ class Comments extends Component {
         this.props.dispatch({
             type: 'SET_COMMENTS',
             payload: ''
-        })
+        });
         this.props.history.push('/support');
     }
 
@@ -22,7 +22,7 @@ class Comments extends Component {
     handleChange = (event) => {
         this.setState({
             comments: event.target.value
-        })
+        });
     }
 
     // send the current state to redux state
@@ -30,7 +30,7 @@ class Comments extends Component {
         this.props.dispatch({
             type: 'SET_COMMENTS',
             payload: this.state.comments
-        })
+        });
         this.props.history.push('/review');
     }
 
@@ -49,6 +49,6 @@ class Comments extends Component {
 
 const mapStateToProps = (reduxStore) => ({
     reduxStore
-})
+});
 
 export default connect(mapStateToProps)(Comments);

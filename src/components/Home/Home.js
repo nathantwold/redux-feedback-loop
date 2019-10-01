@@ -9,7 +9,7 @@ class Home extends Component {
     emptyForm = () => {
         this.props.dispatch({
             type: 'CLEAR_FORM'
-        })
+        });
         this.props.history.push('/feeling')
     }
 
@@ -27,6 +27,6 @@ class Home extends Component {
 
 const mapStateToProps = (reduxStore) => ({
     reduxStore
-})
+});
 
 export default connect(mapStateToProps)(Home);

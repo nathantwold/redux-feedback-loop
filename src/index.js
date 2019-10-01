@@ -46,20 +46,22 @@ const displayReducer = (state = [], action) => {
 }
 
 // redux state from database to display flagged items to admin page
-// const flagReducer = (state = {}, action) => {
-//     switch (action.type) {
-//         case 'FLAG_FEEDBACK':
-//             state = action.payload
-//             return state
-//         default: return state
-//     }
-// }
+const flagReducer = (state = [], action) => {
+    switch (action.type) {
+        case 'FLAG_ENTRY':
+            state = [...state, action.payload]
+            console.log('state', state);
+            return state
+        default: return state
+    }
+}
 
 const storeInstance = createStore(
     combineReducers({
         feedbackReducer,
-        displayReducer
-    }),
+        displayReducer,
+        flagReducer
+    })
 );
 
 ReactDOM.render(<Provider store={storeInstance}><App /></Provider>, document.getElementById('root'));

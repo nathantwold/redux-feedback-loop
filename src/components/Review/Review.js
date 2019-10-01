@@ -16,11 +16,11 @@ class Review extends Component {
             console.log('feedback submitted', result);
         }).catch((error) => {
             console.log(error);
-        })
+        });
         // clear redux state after POST
         this.props.dispatch({
             type: 'CLEAR_FORM'
-        })
+        });
         this.props.history.push('/submitted')
     }
 
@@ -38,12 +38,12 @@ class Review extends Component {
                 <Button color="secondary" variant="contained" onClick={this.handleBack}>Back</Button>
                 <Button color="primary" variant="contained" onClick={this.handleSubmit}>Submit</Button>
             </Router>
-        )
+        );
     }
 }
 
 const mapStateToProps = (reduxStore) => ({
     reduxStore
-})
+});
 
 export default connect(mapStateToProps)(Review);

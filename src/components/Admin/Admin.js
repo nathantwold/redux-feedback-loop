@@ -14,19 +14,22 @@ class Admin extends Component {
     // DELETE call to database to delete feedback item on confirm
     deleteFeedback = (id) => {
         if (window.confirm('are you sure you want to delete this record?')) {
-            axios.delete('/feedback/' + id).then((response) => {
+            axios.delete('/feedback/' + id).then(() => {
                 this.getFeedback();
             }).catch((error) => {
                 console.log('error in delete', error);
-            })
+            });
         }
     }
 
     // PUT call to database to flag an item for review
-    // flagReview = () => {
-    //     axios.put('/') => {
-    //     }
-    // }
+    toggleFlag = (flagged, id) => {
+        axios.put('/feedback/' + flagged + '/' + id).then(() => {
+            this.getFeedback();
+        }).catch((error) => {
+            console.log('error in PUT', error);
+        });
+    }
 
     // GET call to database to send to global redux state
     getFeedback = () => {
@@ -34,7 +37,7 @@ class Admin extends Component {
             this.props.dispatch({ type: 'SHOW_FEEDBACK', payload: response.data });
         }).catch((error) => {
             console.log('error in GET', error);
-        })
+        });
     }
 
     render() {
@@ -62,6 +65,11 @@ class Admin extends Component {
                             <td>{response.understanding}</td>
                             <td>{response.support}</td>
                             <td>{response.comments}</td>
+                            {response.flagged === true ?
+                                <td className="flagged"><Button color="primary" size="large"
+                                    onClick={() => this.toggleFlag(response.flagged, response.id)}>Unflag</Button> </td> :
+                                <td><Button color="secondary" size="large"
+                                    onClick={() => this.toggleFlag(response.flagged, response.id)}>Flag</Button> </td>}
                             <td className="deleteButton"><Button color="secondary" size="large"
                                 onClick={() => this.deleteFeedback(response.id)}>Delete</Button></td>
                         </tr>)}
@@ -74,6 +82,6 @@ class Admin extends Component {
 
 const mapStateToProps = (reduxStore) => ({
     reduxStore
-})
+});
 
 export default connect(mapStateToProps)(Admin);

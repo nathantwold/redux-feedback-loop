@@ -14,7 +14,7 @@ class Support extends Component {
         this.props.dispatch({
             type: 'SET_SUPPORT',
             payload: ''
-        })
+        });
         this.props.history.push('/understanding');
     }
 
@@ -22,7 +22,7 @@ class Support extends Component {
     handleChange = (event) => {
         this.setState({
             support: event.target.value
-        })
+        });
     }
 
     // send the current state to redux state
@@ -33,7 +33,7 @@ class Support extends Component {
             this.props.dispatch({
                 type: 'SET_SUPPORT',
                 payload: this.state.support
-            })
+            });
             this.props.history.push('/comments');
         }
     }
@@ -65,6 +65,6 @@ class Support extends Component {
 
 const mapStateToProps = (reduxStore) => ({
     reduxStore
-})
+});
 
 export default connect(mapStateToProps)(Support);
