@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import axios from 'axios';
 import moment from 'moment';
-import { IconButton } from '@material-ui/core';
+import { IconButton, Table, TableBody, TableCell, TableHead, TableRow } from '@material-ui/core';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FlagIcon from '@material-ui/icons/Flag';
 
@@ -49,34 +49,34 @@ class Admin extends Component {
             <div className="adminTable">
                 <h1>Admin Page</h1>
                 <h2 className="results">Feedback history</h2>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Feeling</th>
-                            <th>Understanding</th>
-                            <th>Support</th>
-                            <th>Comments</th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>{responses.map(response =>
-                        <tr className="response" key={response.id}>
-                            <td>{moment(response.date).format("MMMM Do YYYY")}</td>
-                            <td>{response.feeling}</td>
-                            <td>{response.understanding}</td>
-                            <td>{response.support}</td>
-                            <td>{response.comments}</td>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell>Date</TableCell>
+                            <TableCell>Feeling</TableCell>
+                            <TableCell>Understanding</TableCell>
+                            <TableCell>Support</TableCell>
+                            <TableCell>Comments</TableCell>
+                            <TableCell></TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>{responses.map(response =>
+                        <TableRow className="response" key={response.id}>
+                            <TableCell>{moment(response.date).format("MMMM Do YYYY")}</TableCell>
+                            <TableCell>{response.feeling}</TableCell>
+                            <TableCell>{response.understanding}</TableCell>
+                            <TableCell>{response.support}</TableCell>
+                            <TableCell>{response.comments}</TableCell>
                             {response.flagged === true ?
-                                <td className="flagged"><IconButton color="primary" 
-                                    onClick={() => this.toggleFlag(response.flagged, response.id)}><FlagIcon /></IconButton> </td> :
-                                <td><IconButton color="secondary" 
-                                    onClick={() => this.toggleFlag(response.flagged, response.id)}><FlagIcon /></IconButton> </td>}
-                            <td className="deleteButton"><IconButton color="secondary"
-                                onClick={() => this.deleteFeedback(response.id)}><DeleteIcon /></IconButton></td>
-                        </tr>)}
-                    </tbody>
-                </table>
+                                <TableCell className="flagged"><IconButton color="primary" 
+                                    onClick={() => this.toggleFlag(response.flagged, response.id)}><FlagIcon /></IconButton> </TableCell> :
+                                <TableCell><IconButton color="secondary" 
+                                    onClick={() => this.toggleFlag(response.flagged, response.id)}><FlagIcon /></IconButton> </TableCell>}
+                            <TableCell className="deleteButton"><IconButton color="secondary"
+                                onClick={() => this.deleteFeedback(response.id)}><DeleteIcon /></IconButton></TableCell>
+                        </TableRow>)}
+                    </TableBody>
+                </Table>
             </div>
         )
     }
