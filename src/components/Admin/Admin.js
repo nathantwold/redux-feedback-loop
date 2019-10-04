@@ -68,9 +68,9 @@ class Admin extends Component {
                             <TableCell>{response.support}</TableCell>
                             <TableCell>{response.comments}</TableCell>
                             {response.flagged === true ?
-                                <TableCell className="flagged"><IconButton color="primary" 
-                                    onClick={() => this.toggleFlag(response.flagged, response.id)}><FlagIcon /></IconButton> </TableCell> :
                                 <TableCell><IconButton color="secondary" 
+                                    onClick={() => this.toggleFlag(response.flagged, response.id)}><FlagIcon /></IconButton> </TableCell> :
+                                <TableCell><IconButton color="primary" 
                                     onClick={() => this.toggleFlag(response.flagged, response.id)}><FlagIcon /></IconButton> </TableCell>}
                             <TableCell className="deleteButton"><IconButton color="secondary"
                                 onClick={() => this.deleteFeedback(response.id)}><DeleteIcon /></IconButton></TableCell>

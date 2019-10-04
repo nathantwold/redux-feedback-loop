@@ -12,13 +12,13 @@ class Home extends Component {
     render() {
         return (
             <Router>
-                <h1>Ready for feedback?</h1>
-                <h6>Your responses are measured on a scale of 1 to 5, 1 being 'terrible' and 5 being 'great'.</h6>
+                <h2>Ready for feedback?</h2>
                 <Button color="primary" style={{
                     borderRadius: 5,
-                    padding: "18px 36px",
-                    fontSize: "18px"
-                }} variant="contained" size="large"
+                    margin: 5,
+                    padding: "12px 36px",
+                    fontSize: "16px"
+                }} variant="contained"
                     onClick={this.handleClick}>Get Started!</Button>
             </Router>
         )

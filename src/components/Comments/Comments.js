@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
 import { IconButton, Input } from '@material-ui/core';
-import { ArrowBack, ArrowForward } from '@material-ui/icons';
+import { ChevronLeft, ChevronRight } from '@material-ui/icons';
 
 class Comments extends Component {
     // default value to be sent to redux state
@@ -38,13 +38,13 @@ class Comments extends Component {
     render() {
         return (
             <Router>
-                <h1>Are there any comments you'd like to leave?</h1>
+                <h2>Are there any comments you'd like to leave?</h2>
                 <Input type="text" onChange={this.handleChange}></Input>
                 <br />
                 <IconButton color="secondary" 
-                    onClick={this.handleBack}><ArrowBack /></IconButton>
+                    onClick={this.handleBack}><ChevronLeft /></IconButton>
                 <IconButton color="primary" 
-                    onClick={this.handleClick}><ArrowForward /></IconButton>
+                    onClick={this.handleClick}><ChevronRight /></IconButton>
             </Router>
         )
     }

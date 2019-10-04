@@ -12,11 +12,12 @@ class Submitted extends Component {
     render() {
         return (
             <Router>
-                <h1>Thank you for your feedback!</h1>
+                <h2>Thank you for your feedback!</h2>
                 <Button color="primary" variant="contained"
                     style={{
                         borderRadius: 5, margin: 5, padding: "12px 36px", fontSize: "16px"
-                    }} onClick={this.handleBack}>Submit new feedback</Button>
+                    }}
+                    onClick={this.handleBack}>Submit new feedback</Button>
             </Router>
         );
     }
