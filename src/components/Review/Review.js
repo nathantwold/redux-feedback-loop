@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
 import axios from 'axios';
-import { IconButton, List, ListItem, ListItemText } from '@material-ui/core';
-import { ChevronLeft, CheckCircle } from '@material-ui/icons';
+import { IconButton } from '@material-ui/core';
+import { Save, Cancel } from '@material-ui/icons';
 
 class Review extends Component {
 
@@ -29,32 +29,22 @@ class Review extends Component {
         return (
             <Router>
                 <h2>Review your feedback</h2>
-                <List>
-                    <ListItem>
-                        <ListItemText>
-                            Feeling: {this.props.reduxStore.feedbackReducer.feeling}
-                        </ListItemText>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemText>
-                            Understanding: {this.props.reduxStore.feedbackReducer.understanding}
-                        </ListItemText>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemText>
-                            Support: {this.props.reduxStore.feedbackReducer.support}
-                        </ListItemText>
-                    </ListItem>
-                    <ListItem>
-                        <ListItemText>
-                            Comments: {this.props.reduxStore.feedbackReducer.comments}
-                        </ListItemText>
-                    </ListItem>
-                </List>
+                <h5>
+                    Feeling: {this.props.reduxStore.feedbackReducer.feeling}
+                </h5>
+                <h5>
+                    Understanding: {this.props.reduxStore.feedbackReducer.understanding}
+                </h5>
+                <h5>
+                    Support: {this.props.reduxStore.feedbackReducer.support}
+                </h5>
+                <h5>
+                    Comments: {this.props.reduxStore.feedbackReducer.comments}
+                </h5>
                 <IconButton color="secondary"
-                    onClick={this.handleBack}><ChevronLeft /></IconButton>
+                    onClick={this.handleBack}><Cancel /></IconButton>
                 <IconButton color="primary"
-                    onClick={this.handleSubmit}><CheckCircle /></IconButton>
+                    onClick={this.handleSubmit}><Save /></IconButton>
             </Router>
         );
     }
